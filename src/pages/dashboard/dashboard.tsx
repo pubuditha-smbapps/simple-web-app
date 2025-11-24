@@ -21,7 +21,9 @@ const Dashboard: React.FC = () => (
           <Title level={3} style={{ marginBottom: 0 }}>
             Welcome, Pubuditha!
           </Title>
-          {/* <Text type="secondary">pubuditha@gmail.com</Text> */}
+          <Text type="secondary">
+            Stay updated with your progress and achievements.
+          </Text>
         </Card>
       </Col>
       <Col xs={24} md={16}>
@@ -29,8 +31,8 @@ const Dashboard: React.FC = () => (
           <Col xs={24} sm={8}>
             <Card>
               <Statistic
-                title="Points"
-                value={1280}
+                title="User Level"
+                value={12}
                 prefix={<TrophyOutlined />}
               />
             </Card>
