@@ -3,13 +3,9 @@ import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/dashboard";
 import Profile from "./pages/profile/Profile";
 import Settings from "./pages/settings/Settings";
-import PrivateRoute from "./components/PrivateRoute";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import NotFound from "./pages/common/NotFound";
+import PrivateRoute from "./context/PrivateRoute";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const protectedRoutes = [
   { path: "/dashboard", element: <Dashboard /> },
@@ -30,7 +26,14 @@ function App() {
               element={<PrivateRoute>{element}</PrivateRoute>}
             />
           ))}
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route
+            path="*"
+            element={
+              <PrivateRoute>
+                <NotFound />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </AuthProvider>
