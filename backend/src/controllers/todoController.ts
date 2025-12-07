@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { readDB, writeDB } from "../storage.js";
 import { Todo } from "../models/todoModel.js";
+import crypto from "crypto";
 
 export function getAllTodos(req: Request, res: Response) {
   try {
@@ -30,9 +31,10 @@ export function createTodo(req: Request, res: Response) {
     const todos = data.todos || [];
 
     const newTodo: Todo = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       title: req.body.title,
       description: req.body.description,
+      userId: req.body.userId,
       completed: false,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -43,6 +45,7 @@ export function createTodo(req: Request, res: Response) {
 
     res.status(201).json(newTodo);
   } catch (error) {
+    console.error("Error creating todo:", error);
     res.status(500).json({ message: "Error creating todo", error });
   }
 }

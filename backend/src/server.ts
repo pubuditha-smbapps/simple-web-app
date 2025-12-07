@@ -6,6 +6,11 @@ import todoRoutes from "./routes/todoRoutes";
 dotenv.config();
 const app = express();
 
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
 // app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
 

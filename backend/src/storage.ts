@@ -7,9 +7,21 @@ const __dirname = path.dirname(__filename);
 
 const filePath = path.join(__dirname, "..", "data.json");
 
+// Initialize data.json if it doesn't exist
+if (!fs.existsSync(filePath)) {
+  fs.writeFileSync(filePath, JSON.stringify({ todos: [], users: [] }, null, 2));
+}
+
 export function readDB() {
-  const data = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(data);
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    // If file is corrupted or empty, reinitialize
+    const defaultData = { todos: [], users: [] };
+    writeDB(defaultData);
+    return defaultData;
+  }
 }
 
 export function writeDB(data: any) {
