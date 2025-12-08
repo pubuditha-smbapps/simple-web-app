@@ -1,4 +1,31 @@
 {
-  "users": [],
-  "todos": []
+  "users": [
+    {
+      "id": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "username": "pubuditha",
+      "email": "pubuditha2001@gmail.com",
+      "passwordHash": "$2b$10$yR6EhNr91KGpaY5LNysPzOt16AZw.PHbNDhG/er2471GBNfgcNOh2",
+      "createdAt": "2025-12-08T21:44:57.488Z"
+    }
+  ],
+  "todos": [
+    {
+      "id": "b16a573c-443d-4660-97ae-b19f863be042",
+      "title": "Buy groceries",
+      "description": "Milk, eggs, bread",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": false,
+      "createdAt": "2025-12-08T22:20:31.074Z",
+      "updatedAt": "2025-12-08T22:20:31.075Z"
+    },
+    {
+      "id": "bc2b70ab-d30c-4121-aecd-2de56624a825",
+      "title": "get a hair cut",
+      "description": "",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": false,
+      "createdAt": "2025-12-08T22:21:55.666Z",
+      "updatedAt": "2025-12-08T22:21:55.666Z"
+    }
+  ]
 }

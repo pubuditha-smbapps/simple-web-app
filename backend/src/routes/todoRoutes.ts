@@ -6,8 +6,12 @@ import {
   updateTodo,
   deleteTodo,
 } from "../controllers/todoController";
+import { authenticate } from "../middleware/authMiddleware";
 
 const router = express.Router();
+
+// Apply authentication middleware to all todo routes
+router.use(authenticate);
 
 router.get("/", getAllTodos);
 router.get("/:id", getTodoById);
