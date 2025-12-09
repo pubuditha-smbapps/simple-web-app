@@ -64,6 +64,13 @@ const LoginForm: React.FC = () => {
           Login
         </Button>
       </Form.Item>
+
+      <div style={{ textAlign: "center", marginTop: "16px" }}>
+        Don't have an account?{" "}
+        <a href="/signup" style={{ color: "#1890ff" }}>
+          Sign up here
+        </a>
+      </div>
     </Form>
   );
 };

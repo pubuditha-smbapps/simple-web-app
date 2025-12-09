@@ -3,6 +3,11 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 type AuthContextType = {
   user: string | null;
   login: (username: string, password: string) => Promise<boolean>;
+  signup: (
+    username: string,
+    email: string,
+    password: string
+  ) => Promise<boolean>;
   logout: () => void;
 };
 
@@ -31,10 +36,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     return false;
   };
 
+  const signup = async (username: string, email: string, password: string) => {
+    // Store user data in localStorage (in real app, this would be an API call)
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    // Check if username already exists
+    if (users.find((u: any) => u.username === username)) {
+      return false;
+    }
+
+    // Add new user
+    users.push({ username, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    return true;
+  };
+
   const logout = () => setUser(null);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );
