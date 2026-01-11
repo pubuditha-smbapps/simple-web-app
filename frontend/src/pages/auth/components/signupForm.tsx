@@ -2,20 +2,14 @@ import React, { useState } from "react";
 import { Button, Form, Input, message } from "antd";
 import { useAuth } from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
-type FieldType = {
-  username?: string;
-  email?: string;
-  password?: string;
-  confirmPassword?: string;
-};
+import type { SignupFormFields } from "../../../types";
 
 const SignupForm: React.FC = () => {
   const { signup } = useAuth();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const onFinish = async (values: FieldType) => {
+  const onFinish = async (values: SignupFormFields) => {
     if (values.password !== values.confirmPassword) {
       message.error("Passwords do not match!");
       return;
@@ -44,7 +38,7 @@ const SignupForm: React.FC = () => {
       onFinish={onFinish}
       autoComplete="off"
     >
-      <Form.Item<FieldType>
+      <Form.Item<SignupFormFields>
         label="Username"
         name="username"
         rules={[
@@ -55,7 +49,7 @@ const SignupForm: React.FC = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item<FieldType>
+      <Form.Item<SignupFormFields>
         label="Email"
         name="email"
         rules={[
@@ -66,7 +60,7 @@ const SignupForm: React.FC = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item<FieldType>
+      <Form.Item<SignupFormFields>
         label="Password"
         name="password"
         rules={[
@@ -77,7 +71,7 @@ const SignupForm: React.FC = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item<FieldType>
+      <Form.Item<SignupFormFields>
         label="Confirm Password"
         name="confirmPassword"
         rules={[{ required: true, message: "Please confirm your password!" }]}

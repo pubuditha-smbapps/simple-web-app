@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 import FooterBar from "./FooterBar";
-import { Breadcrumb, Layout, theme } from "antd";
+import { Breadcrumb, Layout, theme, Grid } from "antd";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -18,26 +18,30 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const screens = Grid.useBreakpoint();
+  const contentPadding = screens.xs ? "16px" : "32px 48px";
+  const innerPadding = screens.xs ? 12 : 24;
+  const titleStyle = screens.xs
+    ? { marginTop: 0, marginBottom: 16, fontSize: 18 }
+    : { marginTop: 0, marginBottom: 24 };
   return (
     <Layout
       style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
     >
       <NavBar />
-      <Content style={{ padding: "32px 48px", flex: 1 }}>
+      <Content style={{ padding: contentPadding, flex: 1 }}>
         {breadcrumbItems && (
           <Breadcrumb style={{ margin: "16px 0" }} items={breadcrumbItems} />
         )}
         <div
           style={{
-            padding: 24,
+            padding: innerPadding,
             minHeight: 380,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
         >
-          {pageTitle && (
-            <h2 style={{ marginTop: 0, marginBottom: 24 }}>{pageTitle}</h2>
-          )}
+          {pageTitle && <h2 style={titleStyle}>{pageTitle}</h2>}
           {children}
         </div>
       </Content>

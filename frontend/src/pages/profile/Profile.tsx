@@ -1,6 +1,6 @@
 import React from "react";
 
-import PageLayout from "../../components/PageLayout";
+import PageLayout from "../../components/Common/PageLayout";
 
 const Profile: React.FC = () => {
   return (

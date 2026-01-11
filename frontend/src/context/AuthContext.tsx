@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
+import axios from "axios";
+import "../utils/axiosConfig";
+import {
+  clearAuthState,
+  getStoredUser,
+  setAuthData,
+} from "../services/authService";
 
 type AuthContextType = {
   user: string | null;
@@ -9,6 +16,7 @@ type AuthContextType = {
     password: string
   ) => Promise<boolean>;
   logout: () => void;
+  setUser: (user: string | null) => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -17,44 +25,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<string | null>(() => {
-    return localStorage.getItem("user") || null;
+    return getStoredUser();
   });
 
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", user);
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
-
   const login = async (username: string, password: string) => {
-    if (username === "pubuditha" && password === "password") {
+    try {
+      const res = await axios.post("/auth/login", {
+        username,
+        password,
+      });
+      const token = res.data?.token;
+      if (!token) return false;
+      setAuthData(token, username);
       setUser(username);
       return true;
+    } catch (error) {
+      console.error("Login error:", error);
+      return false;
     }
-    return false;
   };
 
   const signup = async (username: string, email: string, password: string) => {
-    // Store user data in localStorage (in real app, this would be an API call)
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // Check if username already exists
-    if (users.find((u: any) => u.username === username)) {
+    try {
+      await axios.post("/auth/signup", {
+        username,
+        email,
+        password,
+      });
+      return true;
+    } catch (error) {
+      console.error("Signup error:", error);
       return false;
     }
-
-    // Add new user
-    users.push({ username, email, password });
-    localStorage.setItem("users", JSON.stringify(users));
-    return true;
   };
 
-  const logout = () => setUser(null);
+  const logout = () => {
+    clearAuthState();
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout }}>
+    <AuthContext.Provider value={{ user, login, signup, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );

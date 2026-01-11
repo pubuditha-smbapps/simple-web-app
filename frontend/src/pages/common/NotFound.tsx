@@ -1,5 +1,5 @@
 import React from "react";
-import PageLayout from "../../components/PageLayout";
+import PageLayout from "../../components/Common/PageLayout";
 
 const NotFound: React.FC = () => (
   <PageLayout pageTitle="404 Not Found">
