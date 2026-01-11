@@ -3,7 +3,7 @@
     {
       "id": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
       "username": "pubuditha",
-      "email": "pubuditha2001@gmail.com",
+      "email": "pubuditha@gmail.com",
       "passwordHash": "$2b$10$yR6EhNr91KGpaY5LNysPzOt16AZw.PHbNDhG/er2471GBNfgcNOh2",
       "createdAt": "2025-12-08T21:44:57.488Z"
     }
@@ -14,18 +14,72 @@
       "title": "Buy groceries",
       "description": "Milk, eggs, bread",
       "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
-      "completed": false,
+      "completed": true,
       "createdAt": "2025-12-08T22:20:31.074Z",
-      "updatedAt": "2025-12-08T22:20:31.075Z"
+      "updatedAt": "2026-01-11T21:16:11.821Z"
     },
     {
       "id": "bc2b70ab-d30c-4121-aecd-2de56624a825",
       "title": "get a hair cut",
-      "description": "",
+      "description": "get a hair cut before this week end as we have a wedding on sunday.\n",
       "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
       "completed": false,
       "createdAt": "2025-12-08T22:21:55.666Z",
-      "updatedAt": "2025-12-08T22:21:55.666Z"
+      "updatedAt": "2026-01-11T21:59:12.313Z"
+    },
+    {
+      "id": "20cd5969-7cd1-45ba-9f6b-9f77767f6164",
+      "title": "new todo",
+      "description": "this is the description\n",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": true,
+      "createdAt": "2026-01-11T21:28:14.105Z",
+      "updatedAt": "2026-01-11T21:31:47.652Z"
+    },
+    {
+      "id": "030a06a1-e8e7-47a2-9073-96f4edd98cf0",
+      "title": "new todo 2",
+      "description": "this is the description of the new todo 2\n",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": false,
+      "createdAt": "2026-01-11T21:29:15.601Z",
+      "updatedAt": "2026-01-11T21:29:15.601Z"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "title": "Prepare project report edited",
+      "description": "Summarize the progress and challenges for the monthly project report.",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": false,
+      "createdAt": "2026-01-12T09:00:00.000Z",
+      "updatedAt": "2026-01-11T21:59:01.194Z"
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8901-bcde-fa2345678901",
+      "title": "Call the electrician",
+      "description": "Schedule a visit to fix the living room lights.",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": false,
+      "createdAt": "2026-01-12T09:10:00.000Z",
+      "updatedAt": "2026-01-12T09:10:00.000Z"
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9012-cdef-ab3456789012",
+      "title": "Read a chapter of a book",
+      "description": "Read at least one chapter of 'Atomic Habits' before bed.",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": true,
+      "createdAt": "2026-01-12T09:20:00.000Z",
+      "updatedAt": "2026-01-11T21:31:28.258Z"
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0123-defa-bc4567890123",
+      "title": "Plan weekend trip",
+      "description": "Research places to visit and book accommodation for the weekend getaway.",
+      "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
+      "completed": true,
+      "createdAt": "2026-01-12T09:30:00.000Z",
+      "updatedAt": "2026-01-11T21:31:26.826Z"
     }
   ]
 }
