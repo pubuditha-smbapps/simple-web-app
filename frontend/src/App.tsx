@@ -1,5 +1,6 @@
 import { AuthProvider } from "./context/AuthContext";
-import Login from "./pages/login/Login";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
 import Dashboard from "./pages/dashboard/dashboard";
 import Profile from "./pages/profile/Profile";
 import Settings from "./pages/settings/Settings";
@@ -18,6 +19,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           {protectedRoutes.map(({ path, element }) => (
             <Route

@@ -2,19 +2,14 @@ import React, { useState } from "react";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { useAuth } from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
-type FieldType = {
-  username?: string;
-  password?: string;
-  remember?: boolean;
-};
+import type { LoginFormFields } from "../../../types";
 
 const LoginForm: React.FC = () => {
   const { login } = useAuth();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const onFinish = async (values: FieldType) => {
+  const onFinish = async (values: LoginFormFields) => {
     setLoading(true);
     const success = await login(values.username!, values.password!);
     setLoading(false);
@@ -34,7 +29,7 @@ const LoginForm: React.FC = () => {
       onFinish={onFinish}
       autoComplete="off"
     >
-      <Form.Item<FieldType>
+      <Form.Item<LoginFormFields>
         label="Username"
         name="username"
         rules={[{ required: true, message: "Please input your username!" }]}
@@ -42,7 +37,7 @@ const LoginForm: React.FC = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item<FieldType>
+      <Form.Item<LoginFormFields>
         label="Password"
         name="password"
         rules={[{ required: true, message: "Please input your password!" }]}
@@ -50,7 +45,7 @@ const LoginForm: React.FC = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item<FieldType> name="remember" valuePropName="checked">
+      <Form.Item<LoginFormFields> name="remember" valuePropName="checked">
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
@@ -64,6 +59,13 @@ const LoginForm: React.FC = () => {
           Login
         </Button>
       </Form.Item>
+
+      <div style={{ textAlign: "center", marginTop: "16px" }}>
+        Don't have an account?{" "}
+        <a href="/signup" style={{ color: "#1890ff" }}>
+          Sign up here
+        </a>
+      </div>
     </Form>
   );
 };
