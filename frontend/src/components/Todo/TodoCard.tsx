@@ -1,5 +1,5 @@
 import React from "react";
-import { EditOutlined, DeleteOutlined, CheckOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Card, Grid } from "antd";
 import type { Todo } from "../../types";
 
@@ -14,11 +14,23 @@ const TodoCard: React.FC<Props> = ({ todo, onDelete, onEdit, onMarkDone }) => {
   const screens = Grid.useBreakpoint();
   const actions = [
     <EditOutlined key="edit" onClick={() => onEdit && onEdit(todo)} />,
-    <CheckOutlined
-      key="mark"
-      onClick={() => onMarkDone && onMarkDone(todo.id)}
-      style={{ color: todo.completed ? "#52c41a" : "#000" }}
-    />,
+    todo.completed ? (
+      <span
+        key="mark"
+        onClick={() => onMarkDone && onMarkDone(todo.id)}
+        style={{ cursor: "pointer", color: "#0a992b", fontWeight: 500 }}
+      >
+        Done
+      </span>
+    ) : (
+      <span
+        key="mark"
+        onClick={() => onMarkDone && onMarkDone(todo.id)}
+        style={{ cursor: "pointer", color: "#0359a9", fontWeight: 500 }}
+      >
+        Mark as done
+      </span>
+    ),
     <DeleteOutlined
       key="delete"
       onClick={() => onDelete(todo.id)}

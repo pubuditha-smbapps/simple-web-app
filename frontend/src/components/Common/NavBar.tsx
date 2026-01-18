@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Layout } from "antd";
+import { Menu, Layout, Modal } from "antd";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -27,8 +27,18 @@ const NavBar: React.FC = () => {
 
   const handleMenuClick = (e: any) => {
     if (e.key === "logout") {
-      logout();
-      navigate("/login");
+      Modal.confirm({
+        title: "Confirm logout",
+        content: "Are you sure you want to logout?",
+        centered: true,
+        okText: "Logout",
+        cancelText: "Cancel",
+        okType: "danger",
+        onOk() {
+          logout();
+          navigate("/login");
+        },
+      });
     } else if (e.key === "dashboard") {
       navigate("/dashboard");
     } else if (e.key === "profile") {

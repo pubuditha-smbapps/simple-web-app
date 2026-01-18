@@ -4,8 +4,8 @@
       "id": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
       "username": "pubuditha",
       "email": "pubuditha@gmail.com",
-      "passwordHash": "$2b$10$yR6EhNr91KGpaY5LNysPzOt16AZw.PHbNDhG/er2471GBNfgcNOh2",
-      "createdAt": "2025-12-08T21:44:57.488Z"
+      "passwordHash": "$2b$10$Xw8kd35BGY5KtNBhbav4JuULFjUEMhXjtpUV2llKASSyF18T3bvG6",
+      "createdAt": "2026-01-18T16:26:42.674Z"
     }
   ],
   "todos": [
@@ -34,16 +34,16 @@
       "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
       "completed": true,
       "createdAt": "2026-01-11T21:28:14.105Z",
-      "updatedAt": "2026-01-11T21:31:47.652Z"
+      "updatedAt": "2026-01-18T17:22:14.464Z"
     },
     {
       "id": "030a06a1-e8e7-47a2-9073-96f4edd98cf0",
       "title": "new todo 2",
       "description": "this is the description of the new todo 2\n",
       "userId": "a5c2a904-a992-4de5-94af-bc1ede9e70f3",
-      "completed": false,
+      "completed": true,
       "createdAt": "2026-01-11T21:29:15.601Z",
-      "updatedAt": "2026-01-11T21:29:15.601Z"
+      "updatedAt": "2026-01-18T17:22:07.406Z"
     },
     {
       "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
