@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { readDB, writeDB } from "../storage";
-import { User } from "../models/userModel";
+import { readDB, writeDB } from "../storage.js";
+import { User } from "../models/userModel.js";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
-import { createToken } from "../utils/jwt";
+import { createToken } from "../utils/jwt.js";
 
 export const signup = async (req: Request, res: Response) => {
   const db = readDB();

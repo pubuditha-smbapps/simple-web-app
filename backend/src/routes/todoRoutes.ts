@@ -5,8 +5,8 @@ import {
   createTodo,
   updateTodo,
   deleteTodo,
-} from "../controllers/todoController";
-import { authenticate } from "../middleware/authMiddleware";
+} from "../controllers/todoController.js";
+import { authenticate } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 

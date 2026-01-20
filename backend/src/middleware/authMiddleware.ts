@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { verifyToken, JwtPayload } from "../utils/jwt";
+import { verifyToken, JwtPayload } from "../utils/jwt.js";
 
 declare global {
   namespace Express {
@@ -12,7 +12,7 @@ declare global {
 export function authenticate(
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void {
   try {
     const authHeader = req.headers.authorization;

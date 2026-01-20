@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { readDB, writeDB } from "../storage";
-import { Todo } from "../models/todoModel";
+import { readDB, writeDB } from "../storage.js";
+import { Todo } from "../models/todoModel.js";
 import crypto from "crypto";
 
 export function getAllTodos(req: Request, res: Response) {
@@ -18,7 +18,7 @@ export function getTodoById(req: Request, res: Response) {
     const data = readDB();
     const todos = data.todos || [];
     const todo = todos.find(
-      (t: Todo) => t.id === req.params.id && t.userId === req.user?.userId
+      (t: Todo) => t.id === req.params.id && t.userId === req.user?.userId,
     );
     if (!todo) {
       return res.status(404).json({ message: "Todo not found" });
@@ -62,7 +62,7 @@ export function updateTodo(req: Request, res: Response) {
     const data = readDB();
     const todos = data.todos || [];
     const index = todos.findIndex(
-      (t: Todo) => t.id === req.params.id && t.userId === req.user?.userId
+      (t: Todo) => t.id === req.params.id && t.userId === req.user?.userId,
     );
 
     if (index === -1) {
